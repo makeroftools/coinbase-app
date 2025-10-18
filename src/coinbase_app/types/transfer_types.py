@@ -1,0 +1,36 @@
+"""
+# SendMoneyResponse
+{
+  "data": {
+    "id": "3c04e35e-8e5a-5ff1-9155-00675db4ac02",
+    "type": "send",
+    "status": "pending",
+    "amount": {
+      "amount": "-0.10000000",
+      "currency": "BTC"
+    },
+    "native_amount": {
+      "amount": "-1.00",
+      "currency": "USD"
+    },
+    "description": null,
+    "created_at": "2015-01-31T20:49:02Z",
+    "updated_at": "2015-03-31T17:25:29-07:00",
+    "resource": "transaction",
+    "resource_path": "/v2/accounts/2bbf394c-193b-5b2a-9155-3b4732699ede/transactions/3c04e35e-8e5a-5ff1-9155-00675db4ac02",
+    "network": {
+      "status": "pending"
+    },
+    "to": {
+      "resource": "bitcoin_address",
+      "address": "1AUJ8z5RuHkTPQ1eikyfUUetzGmdwLGkpT"
+    }
+  }
+}
+"""
+"""
+
+"""
+
+from typing import Any
+from coinbase_app.adv_trade.rest.types.base_response import BaseResponse
