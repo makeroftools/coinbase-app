@@ -38,7 +38,7 @@ class SendMoneyResponse(BaseResponse):
             self.data: dict[str,Any] = response.pop('data')
         super().__init__(**response)
 
-class TransactionsResponse(BaseResponse):
+class ListTransactionsResponse(BaseResponse):
     """
         {
         "pagination": {
@@ -168,7 +168,7 @@ class TransactionsResponse(BaseResponse):
             ]
         super().__init__(**response)
 
-class TransactionResponse(BaseResponse):
+class ShowTransactionResponse(BaseResponse):
     """
         {
         "data": {
@@ -212,10 +212,32 @@ class TransactionResponse(BaseResponse):
         super().__init__(**response)
 
 
-
-class TransactionSummary(BaseResponse):
-    def __init__(self, **kwargs):
-        
-
 class Transaction(BaseResponse):
     def __init__(self, **kwargs):
+        if 'id' in kwargs:
+            self.id = kwargs.pop('id')
+        if 'type' in kwargs:
+            self.type = kwargs.pop('type')
+        if 'status' in kwargs:
+            self.status = kwargs.pop('status')
+        if 'amount' in kwargs:
+            self.amount = kwargs.pop('amount')
+        if 'native_amount' in kwargs:
+            self.native_amount = kwargs.pop('native_amount')
+        if 'description' in kwargs:
+            self.description = kwargs.pop('description')
+        if 'created_at' in kwargs:
+            self.created_at = kwargs.pop('created_at')
+        if 'updated_at' in kwargs:
+            self.updated_at = kwargs.pop('updated_at')
+        if 'resource' in kwargs:
+            self.resource = kwargs.pop('resource')
+        if 'resource_path' in kwargs:
+            self.resource_path = kwargs.pop('resource_path')
+        if 'network' in kwargs:
+            self.network = kwargs.pop('network')
+        if 'to' in kwargs:
+            self.to = kwargs.pop('to')
+        if 'details' in kwargs:
+            self.details = kwargs.pop('details')
+        super().__init__(**kwargs)
