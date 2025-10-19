@@ -2,8 +2,8 @@ from typing import Any
 
 from coinbase_app.constants import API_PREFIX
 from coinbase_app.types.transaction_types import SendMoneyResponse
-from coinbase_app.types.transaction_types import TransactionResponse
-from coinbase_app.types.transaction_types import TransactionsResponse
+from coinbase_app.types.transaction_types import ShowTransactionResponse
+from coinbase_app.types.transaction_types import ListTransactionsResponse
 
 
 def send_money(
@@ -38,19 +38,19 @@ def send_money(
 
     return SendMoneyResponse(self.post(endpoint, params=params, **kwargs))
 
-def get_transactions(
+def list_transactions(
     self,
     account_id: str,
     **kwargs
-) -> TransactionsResponse:
+) -> ListTransactionsResponse:
     endpoint = f"{API_PREFIX}/accounts/{account_id}/transations"
-    return TransactionsResponse(self.get(endpoint, **kwargs))
+    return ListTransactionsResponse(self.get(endpoint, **kwargs))
 
-def get_transaction(
+def show_transaction(
     self,
     account_id: str,
     transaction_id: str,
     **kwargs
-) -> TransactionResponse:
+) -> ShowTransactionResponse:
     endpoint = f"{API_PREFIX}/accounts/{account_id}/transactions/{transaction_id}"
-    return TransactionResponse(self.get(endpoint, **kwargs))
+    return ShowTransactionResponse(self.get(endpoint, **kwargs))
